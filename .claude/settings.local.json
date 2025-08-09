@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle exec:*)",
+      "Bash(bundle:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  }
+}

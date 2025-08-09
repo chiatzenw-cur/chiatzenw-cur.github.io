@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="container">
+    <a class="site-title crt-text" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+    <nav class="site-nav">
+      {%- assign default_paths = site.pages | map: "path" -%}
+      {%- assign page_paths = site.header_pages | default: default_paths -%}
+      {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+      
+      <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="current crt-text"{% else %}class="crt-text"{% endif %}>
+        <span class="nav-icon">🏠</span>
+        <span class="nav-text">Home</span>
+      </a>
+      
+      {%- if titles_size > 0 -%}
+        {%- for path in page_paths -%}
+          {%- assign my_page = site.pages | where: "path", path | first -%}
+          {%- if my_page.title -%}
+            <a href="{{ my_page.url | relative_url }}" {% if page.url == my_page.url %}class="current crt-text"{% else %}class="crt-text"{% endif %}>
+              {%- if my_page.title == "About" -%}
+                <span class="nav-icon">👤</span>
+              {%- elsif my_page.title == "Archive" -%}
+                <span class="nav-icon">📚</span>
+              {%- else -%}
+                <span class="nav-icon">📄</span>
+              {%- endif -%}
+              <span class="nav-text">{{ my_page.title | escape }}</span>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+      
+    </nav>
+  </div>
+</header>

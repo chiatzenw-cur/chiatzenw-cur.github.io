@@ -1,0 +1,55 @@
+// One Dark Pro Color Palette - 基于 Atom One Dark Pro
+$one-dark-bg: #282c34;           // 主背景色
+$one-dark-bg-light: #2c313c;    // 浅背景色
+$one-dark-bg-dark: #21252b;     // 深背景色
+$one-dark-gutter: #636d83;      // 行号/装饰器
+$one-dark-comment: #5c6370;     // 注释
+$one-dark-fg: #abb2bf;          // 前景色/普通文本
+$one-dark-keyword: #c678dd;     // 关键字/紫色
+$one-dark-function: #61afef;    // 函数/蓝色
+$one-dark-string: #98c379;      // 字符串/绿色
+$one-dark-number: #d19a66;      // 数字/橙色
+$one-dark-constant: #e06c75;    // 常量/红色
+$one-dark-attribute: #e5c07b;   // 属性/黄色
+
+// 背景色系
+$primary-dark: $one-dark-bg-dark;     // 深背景
+$secondary-dark: $one-dark-bg;        // 标准背景
+$tertiary-dark: $one-dark-bg-light;   // 浅背景
+
+// 主要颜色
+$accent-primary: $one-dark-keyword;    // 紫色 - 主要强调
+$accent-secondary: $one-dark-function; // 蓝色 - 次要强调
+$accent-tertiary: $one-dark-constant;  // 红色 - 警告/错误
+$accent-quaternary: $one-dark-string;  // 绿色 - 成功/确认
+
+// 文字颜色
+$text-primary: $one-dark-fg;           // 主文字
+$text-secondary: $one-dark-attribute;  // 次要文字
+$text-muted: $one-dark-comment;       // 静音文字
+$text-accent: $one-dark-function;     // 强调文字
+
+// 边框和高亮
+$border-color: $one-dark-gutter;
+$border-primary: $one-dark-gutter;    // 主边框色 - 中性灰蓝
+$highlight-color: $one-dark-attribute;
+
+// Typography - Modern Tech Fonts with Chinese Support
+$font-family-primary: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Microsoft YaHei', monospace;
+$font-family-secondary: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+$font-size-base: 14px;
+$font-size-large: 18px;
+$font-size-small: 12px;
+$line-height-base: 1.6;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Borders and Effects
+$border-radius: 2px;
+$box-shadow-default: 0 2px 4px rgba(0, 0, 0, 0.8);
+$transition-default: all 0.3s ease;

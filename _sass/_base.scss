@@ -1,0 +1,214 @@
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  height: 100%;
+}
+
+body {
+  font-family: $font-family-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background: $primary-dark;
+  background-image: 
+    radial-gradient(ellipse at 20% 80%, rgba(26, 13, 38, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(99, 109, 131, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 40%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-primary;
+  font-weight: bold;
+  margin-bottom: $spacing-md;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: $text-primary;
+  text-shadow: 
+    0 0 10px rgba(97, 175, 239, 0.6),
+    0 0 20px rgba(97, 175, 239, 0.4),
+    0 0 30px rgba(97, 175, 239, 0.2);
+}
+
+h2 {
+  font-size: 2rem;
+  color: $text-secondary;
+  border-bottom: 2px solid $border-primary;
+  padding-bottom: $spacing-sm;
+  text-shadow: 0 0 8px rgba(198, 120, 221, 0.4);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: $text-accent;
+  text-shadow: 0 0 6px rgba(97, 175, 239, 0.3);
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: $text-secondary;
+}
+
+h5, h6 {
+  font-size: 1rem;
+  color: $text-muted;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $accent-secondary;
+  text-decoration: none;
+  border-bottom: 1px dotted $accent-secondary;
+  transition: $transition-default;
+  
+  &:hover {
+    color: $highlight-color;
+    border-bottom-color: $highlight-color;
+    text-shadow: 
+      0 0 8px rgba(255, 7, 58, 0.6),
+      0 0 16px rgba(255, 7, 58, 0.3);
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+  
+  li {
+    margin-bottom: $spacing-xs;
+    
+    &::marker {
+      color: $accent-secondary;
+    }
+  }
+}
+
+// Code - Enhanced Cyberpunk Style
+code {
+  font-family: $font-family-primary;
+  background: rgba(40, 44, 52, 0.8);
+  color: $accent-secondary;
+  padding: 3px 6px;
+  border-radius: $border-radius;
+  border: 1px solid rgba(198, 120, 221, 0.5);
+  font-size: 0.9em;
+  box-shadow: inset 0 1px 2px rgba(97, 175, 239, 0.1);
+}
+
+pre {
+  background: 
+    linear-gradient(135deg, rgba(40, 44, 52, 0.95) 0%, rgba(33, 37, 43, 0.98) 100%),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(198, 120, 221, 0.03) 40px, rgba(198, 120, 221, 0.03) 41px);
+  color: $text-primary;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  border: 2px solid $border-primary;
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+  box-shadow: 
+    0 4px 8px rgba(198, 120, 221, 0.3),
+    inset 0 1px 2px rgba(97, 175, 239, 0.1);
+  position: relative;
+  
+  // Add subtle scanlines to code blocks
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(97, 175, 239, 0.01) 2px,
+        rgba(97, 175, 239, 0.01) 3px
+      );
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    box-shadow: none;
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid $border-primary;
+  padding-left: $spacing-md;
+  margin: $spacing-md 0;
+  color: $text-secondary;
+  font-style: italic;
+  background: rgba(44, 24, 16, 0.3);
+  padding: $spacing-md;
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-md;
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid $border-color;
+  
+  th, td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  th {
+    background: rgba(139, 69, 19, 0.5);
+    color: $highlight-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  tr:nth-child(even) {
+    background: rgba(44, 24, 16, 0.3);
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-default;
+}
+
+// Selection
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: $highlight-color;
+}
+
+::-moz-selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: $highlight-color;
+}

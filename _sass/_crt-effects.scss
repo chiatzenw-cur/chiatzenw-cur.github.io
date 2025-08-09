@@ -1,0 +1,275 @@
+// CRT Screen Effects
+@keyframes flicker {
+  0% { opacity: 1; }
+  2% { opacity: 0.98; }
+  4% { opacity: 0.92; }
+  8% { opacity: 1; }
+  70% { opacity: 0.99; }
+  72% { opacity: 0.97; }
+  74% { opacity: 0.99; }
+  76% { opacity: 1; }
+  90% { opacity: 0.96; }
+  100% { opacity: 1; }
+}
+
+// One Dark Pro Text Glitch Animation
+@keyframes cyberpunkGlitch {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px rgba(97, 175, 239, 0.8),
+      0 0 10px rgba(97, 175, 239, 0.6),
+      0 0 15px rgba(198, 120, 221, 0.4),
+      2px 0 0 rgba(224, 108, 117, 0.7),
+      -2px 0 0 rgba(97, 175, 239, 0.7);
+  }
+  10% {
+    text-shadow: 
+      0 0 5px rgba(224, 108, 117, 0.8),
+      0 0 10px rgba(224, 108, 117, 0.6),
+      0 0 15px rgba(198, 120, 221, 0.4),
+      3px 0 0 rgba(97, 175, 239, 0.7),
+      -3px 0 0 rgba(224, 108, 117, 0.7);
+  }
+  25% {
+    text-shadow: 
+      0 0 5px rgba(198, 120, 221, 0.8),
+      0 0 10px rgba(198, 120, 221, 0.6),
+      0 0 15px rgba(97, 175, 239, 0.4),
+      1px 0 0 rgba(224, 108, 117, 0.7),
+      -1px 0 0 rgba(198, 120, 221, 0.7);
+  }
+  50% {
+    text-shadow: 
+      0 0 5px rgba(152, 195, 121, 0.8),
+      0 0 10px rgba(152, 195, 121, 0.6),
+      0 0 15px rgba(229, 192, 123, 0.4),
+      4px 0 0 rgba(97, 175, 239, 0.7),
+      -4px 0 0 rgba(198, 120, 221, 0.7);
+  }
+  75% {
+    text-shadow: 
+      0 0 5px rgba(97, 175, 239, 0.8),
+      0 0 10px rgba(224, 108, 117, 0.6),
+      0 0 15px rgba(198, 120, 221, 0.4),
+      2px 0 0 rgba(152, 195, 121, 0.7),
+      -2px 0 0 rgba(229, 192, 123, 0.7);
+  }
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+// CRT Container
+.crt-container {
+  position: relative;
+  overflow-x: hidden; // Only hide horizontal overflow
+  background: 
+    radial-gradient(ellipse at center, $secondary-dark 0%, $primary-dark 70%),
+    linear-gradient(45deg, $tertiary-dark 0%, $secondary-dark 50%, $primary-dark 100%);
+  
+  // Scanline effects
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(97, 175, 239, 0.02) 2px,
+        rgba(97, 175, 239, 0.02) 3px,
+        transparent 3px,
+        transparent 4px,
+        rgba(198, 120, 221, 0.01) 4px,
+        rgba(198, 120, 221, 0.01) 5px
+      );
+    animation: scanlines 0.1s linear infinite;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  // Digital grid texture effects
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(ellipse at center, rgba(40, 44, 52, 0) 40%, rgba(33, 37, 43, 0.6) 100%),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 50px,
+        rgba(198, 120, 221, 0.05) 50px,
+        rgba(198, 120, 221, 0.05) 51px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 50px,
+        rgba(97, 175, 239, 0.03) 50px,
+        rgba(97, 175, 239, 0.03) 51px
+      );
+    pointer-events: none;
+    z-index: 999;
+  }
+}
+
+.crt-flicker {
+  animation: flicker 15s linear infinite;
+}
+
+// CRT Text Effects
+.crt-text {
+  animation: cyberpunkGlitch 2s infinite;
+  //animation-play-state: paused; // 默认暂停动画
+  color: #ffffff;
+  font-family: $font-family-primary;
+  font-weight: 600;
+  
+  // 只在hover时启用动画
+  //&:hover {
+    //animation-play-state: running;
+  //}
+}
+
+// One Dark Pro Glow Effects
+.neon-glow {
+  text-shadow: 
+    0 0 5px rgba(97, 175, 239, 0.8),
+    0 0 10px rgba(97, 175, 239, 0.6),
+    0 0 15px rgba(97, 175, 239, 0.4);
+  color: $accent-secondary;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    text-shadow: 
+      0 0 8px rgba(97, 175, 239, 1),
+      0 0 16px rgba(97, 175, 239, 0.8),
+      0 0 24px rgba(97, 175, 239, 0.4);
+  }
+}
+
+// One Dark Pro Purple Glow
+.neon-pink {
+  text-shadow: 
+    0 0 5px rgba(198, 120, 221, 0.8),
+    0 0 10px rgba(198, 120, 221, 0.6),
+    0 0 15px rgba(198, 120, 221, 0.4);
+  color: $accent-primary;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    text-shadow: 
+      0 0 8px rgba(198, 120, 221, 1),
+      0 0 16px rgba(198, 120, 221, 0.8),
+      0 0 24px rgba(198, 120, 221, 0.6);
+  }
+}
+
+// Neon pulse animation
+@keyframes neonPulse {
+  0% {
+    opacity: 0.7;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  100% {
+    opacity: 0.8;
+    filter: brightness(0.9);
+  }
+}
+
+// Crawling Border Animation
+@keyframes crawlingBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+// Crawling border base class
+.crawling-border {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(97, 175, 239, 0.6) 50%, 
+      transparent 70%,
+      transparent 80%,
+      rgba(198, 120, 221, 0.4) 90%,
+      transparent 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease-in-out infinite;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.8;
+  }
+  
+  &:hover::before {
+    animation-duration: 2s;
+    opacity: 1;
+  }
+}
+
+// Digital rain effects (subtle)
+@keyframes digitalRain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}

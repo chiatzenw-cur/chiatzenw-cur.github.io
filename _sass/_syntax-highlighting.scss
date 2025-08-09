@@ -1,0 +1,195 @@
+// Cyberpunk Syntax Highlighting Theme for Rouge
+.highlight {
+  background: rgba(26, 13, 38, 0.8);
+  border-radius: 6px;
+  
+  // General text
+  .n, .nb, .nf, .nn, .nt, .nv, .nx, .py { 
+    color: #ffffff; 
+  }
+  
+  // Keywords (if, for, class, def, etc.)
+  .k, .kc, .kd, .kn, .kp, .kr, .kt { 
+    color: #ff073a; 
+    font-weight: 500; 
+  }
+  
+  // Strings
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .ss { 
+    color: #00f5ff; 
+  }
+  
+  // Numbers
+  .m, .mb, .mf, .mh, .mi, .ml, .mo, .mx { 
+    color: #c850c8; 
+  }
+  
+  // Comments
+  .c, .c1, .cm, .cp, .cs { 
+    color: #888888; 
+    font-style: italic; 
+  }
+  
+  // Operators
+  .o, .ow { 
+    color: #6a0d83; 
+    font-weight: 600; 
+  }
+  
+  // Functions/Methods
+  .nf { 
+    color: #00f5ff; 
+    font-weight: 500; 
+  }
+  
+  // Classes
+  .nc { 
+    color: #c850c8; 
+    font-weight: 600; 
+  }
+  
+  // Variables
+  .vi, .vg, .vc { 
+    color: #ffffff; 
+  }
+  
+  // Constants
+  .no { 
+    color: #ff073a; 
+    font-weight: 600; 
+  }
+  
+  // Decorators (Python)
+  .nd { 
+    color: #6a0d83; 
+    font-weight: 600; 
+  }
+  
+  // Built-ins
+  .nb { 
+    color: #c850c8; 
+  }
+  
+  // Punctuation
+  .p { 
+    color: #ffffff; 
+  }
+  
+  // HTML/XML tags
+  .nt { 
+    color: #ff073a; 
+  }
+  
+  // HTML/XML attributes
+  .na { 
+    color: #00f5ff; 
+  }
+  
+  // Line numbers
+  .lineno { 
+    color: #555555; 
+    background: rgba(99, 109, 131, 0.1);
+    padding: 0 8px;
+    margin-right: 10px;
+    border-right: 1px solid rgba(99, 109, 131, 0.3);
+  }
+  
+  // Error highlighting
+  .err { 
+    color: #ff073a; 
+    background: rgba(255, 7, 58, 0.1);
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+  
+  // Generic highlighting
+  .gh { 
+    color: #ffffff; 
+    font-weight: bold; 
+  }
+  
+  .gi { 
+    color: #00f5ff; 
+    background: rgba(0, 245, 255, 0.1); 
+  }
+  
+  .gd { 
+    color: #ff073a; 
+    background: rgba(255, 7, 58, 0.1); 
+  }
+  
+  .gu { 
+    color: #c850c8; 
+    font-weight: bold; 
+  }
+  
+  // Special highlighting for JSON
+  .language-json & {
+    .nl { color: #00f5ff; } // Property names
+    .s2 { color: #c850c8; } // String values
+    .kc { color: #6a0d83; } // true, false, null
+  }
+  
+  // Special highlighting for CSS
+  .language-css & {
+    .nc { color: #00f5ff; } // Class selectors
+    .nf { color: #ff073a; } // ID selectors
+    .nd { color: #c850c8; } // Pseudo-classes
+    .k { color: #6a0d83; }  // Properties
+  }
+  
+  // Special highlighting for JavaScript
+  .language-javascript &, .language-js & {
+    .kd { color: #ff073a; } // let, const, var
+    .nx { color: #ffffff; } // Variables
+    .s2 { color: #00f5ff; } // Strings
+    .kc { color: #c850c8; } // true, false, null, undefined
+  }
+}
+
+// Code block with line numbers
+.highlight table {
+  border-collapse: separate;
+  border-spacing: 0;
+  
+  td {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  
+  .lineno {
+    min-width: 40px;
+    text-align: right;
+    vertical-align: top;
+    user-select: none;
+    
+    pre {
+      border: none;
+      background: transparent;
+      padding: 0 8px 0 0;
+      margin: 0;
+      box-shadow: none;
+      
+      &::before {
+        display: none;
+      }
+    }
+  }
+  
+  .code {
+    width: 100%;
+    
+    pre {
+      border: none;
+      background: transparent;
+      margin: 0;
+      padding: 0 0 0 10px;
+      box-shadow: none;
+      
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
