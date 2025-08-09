@@ -12,9 +12,45 @@ class CRTEffects {
   }
 
   createBackgroundVideo() {
-    // Create a canvas for the background CRT effect
+    // Create a video element for the background
+    const video = document.createElement('video');
+    video.id = 'crt-background';
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      pointer-events: none;
+    `;
+    
+    // Add multiple source formats for better compatibility
+    const source = document.createElement('source');
+    source.src = '/assets/images/output.mp4';
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    
+    // Add error handling
+    video.addEventListener('error', (e) => {
+      console.warn('Video failed to load, falling back to image background');
+      // Fallback to original background image
+      document.body.style.backgroundImage = "url('/assets/images/bg.jpg')";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundAttachment = "fixed";
+    });
+    
+    document.body.prepend(video);
+    
+    // Create a canvas for additional CRT noise effects on top
     const canvas = document.createElement('canvas');
-    canvas.id = 'crt-background';
+    canvas.id = 'crt-noise';
     canvas.style.cssText = `
       position: fixed;
       top: 0;
@@ -126,9 +162,15 @@ class CRTEffects {
   handleVisibilityChange() {
     // Pause effects when tab is not visible to save resources
     document.addEventListener('visibilitychange', () => {
-      const canvas = document.getElementById('crt-background');
-      if (canvas) {
-        canvas.style.display = document.hidden ? 'none' : 'block';
+      const video = document.getElementById('crt-background');
+      const canvas = document.getElementById('crt-noise');
+      
+      if (document.hidden) {
+        if (video) video.pause();
+        if (canvas) canvas.style.display = 'none';
+      } else {
+        if (video) video.play();
+        if (canvas) canvas.style.display = 'block';
       }
     });
   }

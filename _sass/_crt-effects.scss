@@ -140,21 +140,16 @@
 .crt-background {
   position: relative;
   
-  
-    content: '';
+  video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/images/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    object-fit: cover;
     z-index: -2;
     animation: backgroundFlicker 12s linear infinite, backgroundDistort 15s ease-in-out infinite;
-  
+  }
 }
 
 // CRT Container
