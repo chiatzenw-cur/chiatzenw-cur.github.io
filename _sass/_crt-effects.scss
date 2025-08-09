@@ -293,6 +293,17 @@
   transition: all 0.3s ease;
 }
 
+img.site-favicon.crt-favicon-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  vertical-align: text-bottom;
+  display: inline-block;
+  animation: faviconGlitch 6s infinite ease-in-out, faviconFlicker 10s infinite linear, glitchDistort 8s infinite ease-in-out;
+  transition: all 0.3s ease;
+  margin-top: -4px;
+}
+
 // Favicon CRT glitch effects for site title
 @keyframes faviconGlitch {
   0%, 100% {
