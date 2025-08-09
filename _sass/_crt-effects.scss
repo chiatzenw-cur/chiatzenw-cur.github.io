@@ -276,20 +276,20 @@
 
 // Site favicon icon with CRT glitch effects
 .site-favicon {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   margin-right: 12px;
   vertical-align: middle;
   display: inline-block;
 }
 
 .crt-favicon-icon {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   margin-right: 12px;
   vertical-align: middle;
   display: inline-block;
-  animation: faviconGlitch 6s infinite ease-in-out, faviconFlicker 10s infinite linear;
+  animation: faviconGlitch 6s infinite ease-in-out, faviconFlicker 10s infinite linear, glitchDistort 8s infinite ease-in-out;
   transition: all 0.3s ease;
 }
 
@@ -347,8 +347,3 @@
   70% { transform: translateX(0) scaleX(1); }
 }
 
-.crt-favicon-icon {
-  animation: faviconGlitch 6s infinite ease-in-out, 
-             faviconFlicker 10s infinite linear,
-             glitchDistort 8s infinite ease-in-out;
-}

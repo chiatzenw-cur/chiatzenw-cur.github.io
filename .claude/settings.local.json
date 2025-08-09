@@ -4,7 +4,8 @@
       "Bash(bundle exec:*)",
       "Bash(bundle:*)",
       "Bash(rm:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(rg:*)"
     ],
     "deny": []
   }
