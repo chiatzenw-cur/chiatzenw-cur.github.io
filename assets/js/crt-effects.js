@@ -153,7 +153,7 @@ function addScreenFlicker() {
 document.addEventListener('DOMContentLoaded', () => {
   new CRTEffects();
   addScreenFlicker();
-  document.body.classList.add('crt-container');
+  document.body.classList.add('crt-container', 'crt-background');
 });
 
 // Add typing effect for text

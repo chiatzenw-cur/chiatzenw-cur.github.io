@@ -15,11 +15,7 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $text-primary;
-  background: $primary-dark;
-  background-image: 
-    radial-gradient(ellipse at 20% 80%, rgba(26, 13, 38, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(99, 109, 131, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 40% 40%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
+  background-color: $primary-dark;
   min-height: 100vh;
   overflow-x: hidden;
 }

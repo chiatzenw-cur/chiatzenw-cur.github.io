@@ -65,13 +65,105 @@
   }
 }
 
+// Background image flicker and distort effects
+@keyframes backgroundFlicker {
+  0% { 
+    filter: brightness(1) contrast(1) saturate(1);
+    opacity: 1;
+  }
+  2% { 
+    filter: brightness(0.9) contrast(1.1) saturate(1.2);
+    opacity: 0.95;
+  }
+  4% { 
+    filter: brightness(1.1) contrast(0.9) saturate(0.8);
+    opacity: 0.98;
+  }
+  8% { 
+    filter: brightness(1) contrast(1) saturate(1);
+    opacity: 1;
+  }
+  70% { 
+    filter: brightness(0.95) contrast(1.05) saturate(1.1);
+    opacity: 0.99;
+  }
+  72% { 
+    filter: brightness(1.05) contrast(0.95) saturate(0.9);
+    opacity: 0.97;
+  }
+  74% { 
+    filter: brightness(0.98) contrast(1.02) saturate(1.05);
+    opacity: 0.99;
+  }
+  76% { 
+    filter: brightness(1) contrast(1) saturate(1);
+    opacity: 1;
+  }
+  90% { 
+    filter: brightness(0.92) contrast(1.08) saturate(1.15);
+    opacity: 0.96;
+  }
+  100% { 
+    filter: brightness(1) contrast(1) saturate(1);
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundDistort {
+  0%, 100% { 
+    transform: scale(1) translateX(0) skew(0deg, 0deg);
+  }
+  10% { 
+    transform: scale(1.002) translateX(-0.5px) skew(0.1deg, 0deg);
+  }
+  20% { 
+    transform: scale(0.998) translateX(0.5px) skew(-0.1deg, 0deg);
+  }
+  30% { 
+    transform: scale(1.001) translateX(-0.3px) skew(0.05deg, 0deg);
+  }
+  40% { 
+    transform: scale(0.999) translateX(0.3px) skew(-0.05deg, 0deg);
+  }
+  50% { 
+    transform: scale(1.003) translateX(-0.8px) skew(0.15deg, 0deg);
+  }
+  60% { 
+    transform: scale(0.997) translateX(0.8px) skew(-0.15deg, 0deg);
+  }
+  70% { 
+    transform: scale(1) translateX(0) skew(0deg, 0deg);
+  }
+}
+
+// CRT Background wrapper class with effects
+.crt-background {
+  position: relative;
+  
+  
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+    animation: backgroundFlicker 12s linear infinite, backgroundDistort 15s ease-in-out infinite;
+  
+}
+
 // CRT Container
 .crt-container {
   position: relative;
   overflow-x: hidden; // Only hide horizontal overflow
-  background: 
-    radial-gradient(ellipse at center, $secondary-dark 0%, $primary-dark 70%),
-    linear-gradient(45deg, $tertiary-dark 0%, $secondary-dark 50%, $primary-dark 100%);
+  // background: 
+  //   radial-gradient(ellipse at center, $secondary-dark 0%, $primary-dark 70%),
+  //   linear-gradient(45deg, $tertiary-dark 0%, $secondary-dark 50%, $primary-dark 100%);
   
   // Scanline effects
   &::before {
@@ -282,7 +374,7 @@
   vertical-align: middle;
   display: inline-block;
 }
-
+/*
 .crt-favicon-icon {
   width: 32px;
   height: 32px;
@@ -292,6 +384,7 @@
   animation: faviconGlitch 6s infinite ease-in-out, faviconFlicker 10s infinite linear, glitchDistort 8s infinite ease-in-out;
   transition: all 0.3s ease;
 }
+*/
 
 img.site-favicon.crt-favicon-icon {
   width: 32px;
@@ -299,7 +392,8 @@ img.site-favicon.crt-favicon-icon {
   margin-right: 12px;
   vertical-align: text-bottom;
   display: inline-block;
-  animation: faviconGlitch 6s infinite ease-in-out, faviconFlicker 10s infinite linear, glitchDistort 8s infinite ease-in-out;
+  // animation: faviconGlitch 6s infinite ease-in-out, faviconFlicker 10s infinite linear, glitchDistort 8s infinite ease-in-out;
+  animation: faviconFlicker 10s infinite linear, glitchDistort 8s infinite ease-in-out;
   transition: all 0.3s ease;
   margin-top: -4px;
 }
